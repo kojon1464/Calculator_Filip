@@ -5,8 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="Calculator" Height="525" Width="350" ResizeMode="NoResize">
+    <Grid Margin="10,10,10,10">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border Margin="5,5,5,5" BorderThickness="3" BorderBrush="Gray" Grid.ColumnSpan="4">
+            <TextBlock Name="TextBox_Result" />
+        </Border>
+
+        <Button Name="Button_7" Margin="5,5,5,5" FontSize="40" Content="7" Grid.Row="1"/>
+        <Button Name="Button_8" Margin="5,5,5,5" FontSize="40" Content="8" Grid.Row="1" Grid.Column="1"/>
+        <Button Name="Button_9" Margin="5,5,5,5" FontSize="40" Content="9" Grid.Row="1" Grid.Column="2"/>
+        <Button Name="Button_Times" Margin="5,5,5,5" FontSize="40" Content="*" Grid.Row="1" Grid.Column="3"/>
+
+        <Button Name="Button_4" Margin="5,5,5,5" FontSize="40" Content="4" Grid.Row="2"/>
+        <Button Name="Button_5" Margin="5,5,5,5" FontSize="40" Content="5" Grid.Row="2" Grid.Column="1"/>
+        <Button Name="Button_6" Margin="5,5,5,5" FontSize="40" Content="6" Grid.Row="2" Grid.Column="2"/>
+        <Button Name="Button_Divide" Margin="5,5,5,5" FontSize="40" Content="/" Grid.Row="2" Grid.Column="3"/>
+
+        <Button Name="Button_1" Margin="5,5,5,5" FontSize="40" Content="1" Grid.Row="3"/>
+        <Button Name="Button_2" Margin="5,5,5,5" FontSize="40" Content="2" Grid.Row="3" Grid.Column="1"/>
+        <Button Name="Button_3" Margin="5,5,5,5" FontSize="40" Content="3" Grid.Row="3" Grid.Column="2"/>
+        <Button Name="Button_Minus" Margin="5,5,5,5" FontSize="40" Content="-" Grid.Row="3" Grid.Column="3"/>
+
+        <Button Name="Button_0" Margin="5,5,5,5" FontSize="40" Content="0" Grid.Row="4"/>
+        <Button Name="Button_Comma" Margin="5,5,5,5" FontSize="40" Content="," Grid.Row="4" Grid.Column="1"/>
+        <Button Name="Button_Equals" Margin="5,5,5,5" FontSize="40" Content="=" Grid.Row="4" Grid.Column="2"/>
+        <Button Name="Button_Plus" Margin="5,5,5,5" FontSize="40" Content="+" Grid.Row="4" Grid.Column="3"/>
     </Grid>
 </Window>
