@@ -23,7 +23,7 @@
         </Grid.ColumnDefinitions>
 
         <Border Margin="5,5,5,5" BorderThickness="3" BorderBrush="Gray" Grid.ColumnSpan="4">
-            <TextBlock Name="TextBox_Result" />
+            <TextBlock FontSize="27" Name="TextBox_Result" />
         </Border>
 
         <Button Name="Button_Clear" Margin="5,5,5,5" FontSize="40" Content="C" Grid.Row="1"/>
@@ -31,22 +31,22 @@
         <Button Name="Button_SignChange" Margin="5,5,5,5" FontSize="40" Content="+/-" Grid.Row="1" Grid.Column="2"/>
         <Button Name="Button_Root" Margin="5,5,5,5" FontSize="40" Content="Sqr" Grid.Row="1" Grid.Column="3"/>
 
-        <Button Name="Button_7" Margin="5,5,5,5" FontSize="40" Content="7" Grid.Row="2"/>
-        <Button Name="Button_8" Margin="5,5,5,5" FontSize="40" Content="8" Grid.Row="2" Grid.Column="1"/>
-        <Button Name="Button_9" Margin="5,5,5,5" FontSize="40" Content="9" Grid.Row="2" Grid.Column="2"/>
+        <Button Name="Button_7" Margin="5,5,5,5" FontSize="40" Content="7" Grid.Row="2" Click="Button_7_Click"/>
+        <Button Name="Button_8" Margin="5,5,5,5" FontSize="40" Content="8" Grid.Row="2" Grid.Column="1" Click="Button_8_Click"/>
+        <Button Name="Button_9" Margin="5,5,5,5" FontSize="40" Content="9" Grid.Row="2" Grid.Column="2" Click="Button_9_Click"/>
         <Button Name="Button_Times" Margin="5,5,5,5" FontSize="40" Content="*" Grid.Row="2" Grid.Column="3"/>
 
-        <Button Name="Button_4" Margin="5,5,5,5" FontSize="40" Content="4" Grid.Row="3"/>
-        <Button Name="Button_5" Margin="5,5,5,5" FontSize="40" Content="5" Grid.Row="3" Grid.Column="1"/>
-        <Button Name="Button_6" Margin="5,5,5,5" FontSize="40" Content="6" Grid.Row="3" Grid.Column="2"/>
+        <Button Name="Button_4" Margin="5,5,5,5" FontSize="40" Content="4" Grid.Row="3" Click="Button_4_Click"/>
+        <Button Name="Button_5" Margin="5,5,5,5" FontSize="40" Content="5" Grid.Row="3" Grid.Column="1" Click="Button_5_Click"/>
+        <Button Name="Button_6" Margin="5,5,5,5" FontSize="40" Content="6" Grid.Row="3" Grid.Column="2" Click="Button_6_Click"/>
         <Button Name="Button_Divide" Margin="5,5,5,5" FontSize="40" Content="/" Grid.Row="3" Grid.Column="3"/>
 
-        <Button Name="Button_1" Margin="5,5,5,5" FontSize="40" Content="1" Grid.Row="4"/>
-        <Button Name="Button_2" Margin="5,5,5,5" FontSize="40" Content="2" Grid.Row="4" Grid.Column="1"/>
-        <Button Name="Button_3" Margin="5,5,5,5" FontSize="40" Content="3" Grid.Row="4" Grid.Column="2"/>
+        <Button Name="Button_1" Margin="5,5,5,5" FontSize="40" Content="1" Grid.Row="4" Click="Button_1_Click"/>
+        <Button Name="Button_2" Margin="5,5,5,5" FontSize="40" Content="2" Grid.Row="4" Grid.Column="1" Click="Button_2_Click"/>
+        <Button Name="Button_3" Margin="5,5,5,5" FontSize="40" Content="3" Grid.Row="4" Grid.Column="2" Click="Button_3_Click"/>
         <Button Name="Button_Minus" Margin="5,5,5,5" FontSize="40" Content="-" Grid.Row="4" Grid.Column="3"/>
 
-        <Button Name="Button_0" Margin="5,5,5,5" FontSize="40" Content="0" Grid.Row="5"/>
+        <Button Name="Button_0" Margin="5,5,5,5" FontSize="40" Content="0" Grid.Row="5" Click="Button_0_Click"/>
         <Button Name="Button_Comma" Margin="5,5,5,5" FontSize="40" Content="," Grid.Row="5" Grid.Column="1"/>
         <Button Name="Button_Equals" Margin="5,5,5,5" FontSize="40" Content="=" Grid.Row="5" Grid.Column="2"/>
         <Button Name="Button_Plus" Margin="5,5,5,5" FontSize="40" Content="+" Grid.Row="5" Grid.Column="3"/>
