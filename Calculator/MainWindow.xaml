@@ -47,7 +47,7 @@
         <Button Name="Button_Minus" Margin="5,5,5,5" FontSize="40" Content="-" Grid.Row="4" Grid.Column="3"/>
 
         <Button Name="Button_0" Margin="5,5,5,5" FontSize="40" Content="0" Grid.Row="5" Click="Button_0_Click"/>
-        <Button Name="Button_Comma" Margin="5,5,5,5" FontSize="40" Content="," Grid.Row="5" Grid.Column="1"/>
+        <Button Name="Button_Comma" Margin="5,5,5,5" FontSize="40" Content="," Grid.Row="5" Grid.Column="1" Click="Button_Comma_Click"/>
         <Button Name="Button_Equals" Margin="5,5,5,5" FontSize="40" Content="=" Grid.Row="5" Grid.Column="2"/>
         <Button Name="Button_Plus" Margin="5,5,5,5" FontSize="40" Content="+" Grid.Row="5" Grid.Column="3"/>
     </Grid>
