@@ -8,15 +8,82 @@ namespace Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
+        enum Operation { none, plus, minus, times, divide};
+        Operation currentOperation;
+        bool isPerformingOperation = false; // true if operation haven't been performed
+        bool changedNumber = false; // true if during operation number has been changed
+
+        double memorizedNumber;
+
         long currentNumber = 0;
         int zeroNumber = 0; // number of zeros at the end
         bool isDecimal = false;
         long divider = 1;
- 
+
+        void ClearCurrentNumber()
+        {
+            //cleaning current number
+            currentNumber = 0;
+            zeroNumber = 0;
+            isDecimal = false;
+            divider = 1;
+        }
+
+        void PerformOperation()
+        {
+            switch (currentOperation)
+            {
+                case Operation.plus:
+                    memorizedNumber = memorizedNumber + ((Double)currentNumber / (Double)divider);
+                    TextBox_Result.Text = memorizedNumber.ToString();
+                    ClearCurrentNumber();
+                    break;
+                case Operation.minus:
+                    memorizedNumber = memorizedNumber - ((Double)currentNumber / (Double)divider);
+                    TextBox_Result.Text = memorizedNumber.ToString();
+                    ClearCurrentNumber();
+                    break;
+                case Operation.times:
+                    memorizedNumber = memorizedNumber * ((Double)currentNumber / (Double)divider);
+                    TextBox_Result.Text = memorizedNumber.ToString();
+                    ClearCurrentNumber();
+                    break;
+                case Operation.divide:
+                    memorizedNumber = memorizedNumber / ((Double)currentNumber / (Double)divider);
+                    TextBox_Result.Text = memorizedNumber.ToString();
+                    ClearCurrentNumber();
+                    break;
+                default:
+                    break;
+            }
+            currentOperation = Operation.none;
+            isPerformingOperation = false;
+            changedNumber = false;
+        }
+
+        void MemorizeNumber()
+        {
+            if (changedNumber)
+            {
+                if (isPerformingOperation)
+                {
+                    PerformOperation();
+                }
+                else
+                {
+                    memorizedNumber = (Double)currentNumber / (Double)divider;
+                    ClearCurrentNumber();
+                }
+            }
+            isPerformingOperation = true;
+            changedNumber = false;
+        }
+        
         // x is appended to currentNumber
         void AppendNumber(long x)
         {
-            if(currentNumber<100000000000000 && currentNumber > -100000000000000 && divider< 100000000000000)
+            changedNumber = true;
+            if (currentNumber<100000000000000 && currentNumber > -100000000000000 && divider< 100000000000000)
             {
                 if(x == 0 && isDecimal)
                 {
@@ -144,6 +211,35 @@ namespace Calculator
         {
             currentNumber *= -1;
             ShowNumber();
+        }
+
+        private void Button_Plus_Click(object sender, RoutedEventArgs e)
+        {
+            MemorizeNumber();
+            currentOperation = Operation.plus;
+        }
+
+        private void Button_Minus_Click(object sender, RoutedEventArgs e)
+        {
+            MemorizeNumber();
+            currentOperation = Operation.minus;
+        }
+
+        private void Button_Divide_Click(object sender, RoutedEventArgs e)
+        {
+            MemorizeNumber();
+            currentOperation = Operation.divide;
+        }
+
+        private void Button_Times_Click(object sender, RoutedEventArgs e)
+        {
+            MemorizeNumber();
+            currentOperation = Operation.times;
+        }
+
+        private void Button_Equals_Click(object sender, RoutedEventArgs e)
+        {
+            PerformOperation();
         }
     }
 }
