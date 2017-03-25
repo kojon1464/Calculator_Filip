@@ -8,17 +8,33 @@ namespace Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
-        enum Operation { none, plus, minus, times, divide};
+        enum Operation { none, plus, minus, times, divide, root};
         Operation currentOperation;
         bool isPerformingOperation = false; // true if operation haven't been performed
         bool changedNumber = false; // true if during operation number has been changed
 
         double memorizedNumber;
+        bool displayedMemorizedNumber = false;
 
         long currentNumber = 0;
         int zeroNumber = 0; // number of zeros at the end
         bool isDecimal = false;
         long divider = 1;
+
+
+        void Clear()
+        {
+            currentNumber = 0;
+            zeroNumber = 0;
+            divider = 1;
+            isDecimal = false;
+            memorizedNumber = 0;
+            changedNumber = false;
+            isPerformingOperation = false;
+            currentOperation = Operation.none;
+            TextBox_Result.Text = "0";
+            displayedMemorizedNumber = false;
+        }
 
         void ClearCurrentNumber()
         {
@@ -27,6 +43,32 @@ namespace Calculator
             zeroNumber = 0;
             isDecimal = false;
             divider = 1;
+        }
+
+        void DeleteLastNumber()
+        {
+            if(displayedMemorizedNumber)
+            {
+                string temp = memorizedNumber.ToString();
+                temp = temp.Remove(temp.Length - 1);
+                memorizedNumber = Convert.ToDouble(temp);
+                TextBox_Result.Text = temp;
+            }
+            else
+            {
+                if (divider > 1)
+                {
+                    divider /= 10;
+                }
+                else if (isDecimal)
+                {
+                    isDecimal = false;
+                    goto Jump;
+                }
+                currentNumber = (currentNumber - currentNumber % 10) / 10;
+            Jump:
+                ShowNumber();
+            } 
         }
 
         void PerformOperation()
@@ -53,10 +95,15 @@ namespace Calculator
                     TextBox_Result.Text = memorizedNumber.ToString();
                     ClearCurrentNumber();
                     break;
+                case Operation.root:
+                    memorizedNumber = Math.Sqrt(memorizedNumber);
+                    TextBox_Result.Text = memorizedNumber.ToString();
+                    break;
                 default:
                     break;
             }
             currentOperation = Operation.none;
+            displayedMemorizedNumber = true;
             isPerformingOperation = false;
             changedNumber = false;
         }
@@ -77,6 +124,11 @@ namespace Calculator
             }
             isPerformingOperation = true;
             changedNumber = false;
+            if (currentOperation == Operation.root)
+            {
+                PerformOperation();
+
+            }
         }
         
         // x is appended to currentNumber
@@ -130,6 +182,7 @@ namespace Calculator
                 }
                 TextBox_Result.Text = number;
             }
+            displayedMemorizedNumber = false;
         }
 
         public MainWindow()
@@ -240,6 +293,22 @@ namespace Calculator
         private void Button_Equals_Click(object sender, RoutedEventArgs e)
         {
             PerformOperation();
+        }
+
+        private void Button_Clear_Click(object sender, RoutedEventArgs e)
+        {
+            Clear();
+        }
+
+        private void Button_Root_Click(object sender, RoutedEventArgs e)
+        {
+            currentOperation = Operation.root;
+            MemorizeNumber();
+        }
+
+        private void Button_Back_Click(object sender, RoutedEventArgs e)
+        {
+            DeleteLastNumber();
         }
     }
 }

@@ -26,10 +26,10 @@
             <TextBlock FontSize="27" Name="TextBox_Result" />
         </Border>
 
-        <Button Name="Button_Clear" Margin="5,5,5,5" FontSize="40" Content="C" Grid.Row="1"/>
-        <Button Name="Button_Back" Margin="5,5,5,5" FontSize="40" Content="Bck" Grid.Row="1" Grid.Column="1"/>
+        <Button Name="Button_Clear" Margin="5,5,5,5" FontSize="40" Content="C" Grid.Row="1" Click="Button_Clear_Click"/>
+        <Button Name="Button_Back" Margin="5,5,5,5" FontSize="40" Content="Bck" Grid.Row="1" Grid.Column="1" Click="Button_Back_Click"/>
         <Button Name="Button_SignChange" Margin="5,5,5,5" FontSize="40" Content="+/-" Grid.Row="1" Grid.Column="2" Click="Button_SignChange_Click"/>
-        <Button Name="Button_Root" Margin="5,5,5,5" FontSize="40" Content="Sqr" Grid.Row="1" Grid.Column="3"/>
+        <Button Name="Button_Root" Margin="5,5,5,5" FontSize="40" Content="Sqr" Grid.Row="1" Grid.Column="3" Click="Button_Root_Click"/>
 
         <Button Name="Button_7" Margin="5,5,5,5" FontSize="40" Content="7" Grid.Row="2" Click="Button_7_Click"/>
         <Button Name="Button_8" Margin="5,5,5,5" FontSize="40" Content="8" Grid.Row="2" Grid.Column="1" Click="Button_8_Click"/>
